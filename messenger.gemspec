@@ -14,7 +14,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'shoulda-matchers'
   spec.add_development_dependency 'sqlite3'
 
-  spec.add_dependency 'concerned_with'
   spec.add_dependency 'rails'
   spec.add_dependency 'uuid'
 

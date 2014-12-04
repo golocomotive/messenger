@@ -1,10 +1,10 @@
 class CreateMessengerMessages < ActiveRecord::Migration
   def change
     create_table :messenger_messages do |t|
-      t.text :body
-      t.datetime :read_at
-      t.belongs_to :sender, index: true
-
+      t.text        :body
+      t.string      :subject, required: true
+      t.belongs_to  :sender,  required: true, index: true
+      t.datetime    :sent_at, required: false
       t.timestamps
     end
   end

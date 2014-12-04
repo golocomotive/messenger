@@ -1,0 +1,24 @@
+Description:
+    Creates a model broken down into many small files
+
+Example:
+    rails generate concerns Thing
+
+    This will create:
+      app/models/thing.rb
+      app/models/thing
+      app/models/thing/thing_active_record.rb
+      app/models/thing/thing_class_methods.rb
+      app/models/thing/thing_extensions.rb
+      app/models/thing/thing_instance_methods.rb
+      app/models/thing/thing_search.rb
+      app/models/thing/thing_scopes.rb
+      db/migrate/....create_things.rb
+      spec/factories/things.rb
+      spec/models/thing
+      spec/models/thing/thing_active_record_spec.rb
+      spec/models/thing/thing_class_methods_spec.rb
+      spec/models/thing/thing_extensions_spec.rb
+      spec/models/thing/thing_instance_methods_spec.rb
+      spec/models/thing/thing_search_spec.rb
+      spec/models/thing/thing_scopes_spec.rb
