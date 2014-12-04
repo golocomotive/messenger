@@ -5,5 +5,7 @@
 log/*.log
 pkg/
 spec/dummy/.sass-cache
+spec/dummy/db/
 spec/dummy/tmp/
+spec/dummy/log/
 

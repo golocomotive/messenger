@@ -6,9 +6,7 @@ gemspec
 
 gem 'jquery-rails'
 
-group :test do
-  gem 'faker'
+group :development, :test do
   gem 'guard-rspec'
-  gem 'rspec-rails'
-  gem 'shoulda'
+  gem 'spring'
 end
