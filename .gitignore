@@ -1,0 +1,9 @@
+*.sqlite3
+.bundle/
+/.ruby-gemset
+/.ruby-version
+log/*.log
+pkg/
+spec/dummy/.sass-cache
+spec/dummy/tmp/
+
