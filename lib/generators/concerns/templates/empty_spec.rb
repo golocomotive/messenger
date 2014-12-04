@@ -1,4 +1,6 @@
 require 'spec_helper'
 
-describe <%= name.classify -%> do
+module <%= simple_class_path.classify %>
+  describe <%= name.classify -%> do
+  end
 end
