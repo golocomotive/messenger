@@ -22,8 +22,8 @@ class ConcernsGenerator < Rails::Generators::NamedBase
     empty_directory "spec/models/#{simple_class_path}/#{klass}"
 
     inject_into_class "app/models/#{simple_class_path}/#{klass}.rb", klass.classify, verbose: true do
-      "  concerned_with(\n    " +
-          (files).map { |file| ":#{name.underscore}_#{file}" }.join(",\n    ") + " )\n"
+      "    concerned_with(\n      " +
+          (files).map { |file| ":#{name.underscore}_#{file}" }.join(",\n      ") + " )\n"
     end
 
     files.each do |file|
