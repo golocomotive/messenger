@@ -1,3 +1,4 @@
+require 'hashie/mash'
 require_relative '../util/concerned_with'
 
 module Messenger
@@ -17,6 +18,13 @@ module Messenger
           app.config.paths['db/migrate'] << expanded_path
         end
       end
+    end
+
+    initializer :define_sender_model_name do |app|
+      config_file   = File.join app.root, 'config/messenger.yml'
+      configuration = YAML.load_file(config_file) if File.exists?(config_file)
+      configuration = Hashie::Mash.new(configuration || {})
+      app.config.sender_model_name = configuration.sender_model || 'User'
     end
 
     ActiveRecord::Base.send(:extend, Util::ConcernedWith)

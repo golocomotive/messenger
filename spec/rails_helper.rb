@@ -1,12 +1,12 @@
 ENV["RAILS_ENV"] ||= 'test'
 
 require 'active_support/all'
-require 'spec_helper'
-require File.expand_path("../dummy/config/environment", __FILE__)
+require File.expand_path('../dummy/config/environment', __FILE__)
 require 'rspec/rails'
 require 'factory_girl_rails'
 require 'database_cleaner'
 require 'shoulda/matchers'
+require File.expand_path('../dummy/spec/factories/users', __FILE__)
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -18,6 +18,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    FactoryGirl.lint
   end
 
   config.before(:each) do
