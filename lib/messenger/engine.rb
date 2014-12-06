@@ -1,3 +1,5 @@
+require_relative '../util/concerned_with'
+
 module Messenger
   class Engine < ::Rails::Engine
     isolate_namespace Messenger
@@ -16,5 +18,7 @@ module Messenger
         end
       end
     end
+
+    ActiveRecord::Base.send(:extend, Util::ConcernedWith)
   end
 end

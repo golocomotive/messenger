@@ -1,19 +1,16 @@
-require 'spec_helper'
-
 ENV["RAILS_ENV"] ||= 'test'
 
 require 'active_support/all'
 require 'spec_helper'
 require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'factory_girl_rails'
 require 'database_cleaner'
 require 'shoulda/matchers'
 
 Rails.backtrace_cleaner.remove_silencers!
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/rails_support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
