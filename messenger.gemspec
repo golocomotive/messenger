@@ -7,15 +7,11 @@ require 'messenger/version'
 Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.7'
   spec.add_development_dependency 'database_cleaner'
-  spec.add_development_dependency 'factory_girl_rails'
-  spec.add_development_dependency 'faker'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec-rails'
-  spec.add_development_dependency 'shoulda-matchers'
   spec.add_development_dependency 'sqlite3'
 
   spec.add_dependency 'hashie'
-  spec.add_dependency 'rails'
+  spec.add_dependency 'rails', '4.1.0'
   spec.add_dependency 'uuid'
 
   spec.authors       = ['Martin Streicher']

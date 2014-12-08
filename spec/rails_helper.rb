@@ -6,9 +6,11 @@ require 'rspec/rails'
 require 'factory_girl_rails'
 require 'database_cleaner'
 require 'shoulda/matchers'
-require File.expand_path('../dummy/spec/factories/users', __FILE__)
 
-Dir[File.join(File.expand_path('../rails_support', __FILE__), '/**/*.rb')].each { |f| puts f; require f }
+Dir[File.join(File.expand_path('../rails_support', __FILE__), '/**/*.rb')].each { |f| require f }
+
+FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+FactoryGirl.find_definitions
 
 Rails.backtrace_cleaner.remove_silencers!
 
