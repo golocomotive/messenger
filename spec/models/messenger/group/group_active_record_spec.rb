@@ -5,7 +5,20 @@ module Messenger
     describe 'Associations' do
       specify { should belong_to(:owner) }
       specify { should have_many(:memberships) }
-      specify { should have_many(:members).through(:memberships) }
+
+      describe '.members' do
+        let(:o) { create :user }
+        let(:u) { create :user }
+        let(:v) { create :user }
+        let(:g) { create :group, owner: o }
+
+        specify 'finds all members' do
+          g.memberships.build(member: u)
+          g.memberships.build(member: v)
+          g.save!
+          expect(g.members).to match([u, v])
+        end
+      end
     end
 
     describe 'Database Columns' do

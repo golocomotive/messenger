@@ -1,4 +1,4 @@
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 
 require 'active_support/all'
 require File.expand_path('../dummy/config/environment', __FILE__)
@@ -8,13 +8,14 @@ require 'database_cleaner'
 require 'shoulda/matchers'
 require File.expand_path('../dummy/spec/factories/users', __FILE__)
 
+Dir[File.join(File.expand_path('../rails_support', __FILE__), '/**/*.rb')].each { |f| puts f; require f }
+
 Rails.backtrace_cleaner.remove_silencers!
 
-Dir[Rails.root.join("spec/rails_support/**/*.rb")].each { |f| require f }
-
 RSpec.configure do |config|
-  config.use_transactional_fixtures = false
+  config.include FactoryGirl::Syntax::Methods
   config.infer_spec_type_from_file_location!
+  config.use_transactional_fixtures = false
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
