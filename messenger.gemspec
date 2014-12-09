@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sqlite3'
 
   spec.add_dependency 'hashie'
-  spec.add_dependency 'rails', '4.1.0'
+  spec.add_dependency 'rails', '4.1.8'
   spec.add_dependency 'uuid'
 
   spec.authors       = ['Martin Streicher']

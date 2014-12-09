@@ -2,6 +2,7 @@ class CreateMessengerReceipts < ActiveRecord::Migration
   def change
     create_table :messenger_receipts do |t|
       t.belongs_to :message,    required: true
+      t.datetime   :read_at,    required: false, default: nil
       t.belongs_to :recipient,  required: true, polymorphic: true
       t.timestamps
     end

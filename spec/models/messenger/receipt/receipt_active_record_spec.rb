@@ -4,6 +4,7 @@ module Messenger
   describe Receipt do
     describe 'Database Columns' do
       specify { should have_db_column(:message_id).of_type(:integer) }
+      specify { should have_db_column(:read_at).of_type(:datetime) }
       specify { should have_db_column(:recipient_id).of_type(:integer) }
       specify { should have_db_column(:recipient_type).of_type(:string) }
     end

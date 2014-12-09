@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20141207230426) do
 
   create_table "messenger_receipts", force: true do |t|
     t.integer  "message_id"
+    t.datetime "read_at"
     t.integer  "recipient_id"
     t.string   "recipient_type"
     t.datetime "created_at"
