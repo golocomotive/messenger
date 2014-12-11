@@ -1,4 +1,5 @@
 require 'hashie/mash'
+require 'activerecord-import'
 require_relative '../util/concerned_with'
 
 module Messenger
