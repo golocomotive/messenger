@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activerecord-import'
   spec.add_dependency 'hashie'
-  spec.add_dependency 'rails', '4.1.0'
+  spec.add_dependency 'rails', '4.1.8'
   spec.add_dependency 'uuid'
 
   spec.authors       = ['Martin Streicher']
