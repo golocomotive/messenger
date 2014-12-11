@@ -10,10 +10,15 @@ module Services
 
     describe 'Instance Methods' do
       describe '#deliver' do
-        specify 'sends the message to each recipient' do
+        specify 'add the message to each recipient' do
           subject.deliver
           expect(u.reload.messages).to include(m)
           expect(v.reload.messages).to include(m)
+        end
+
+        specify 'ensure the message is tied to all recipients' do
+          subject.deliver
+          expect(m.recipients).to include(u, v)
         end
 
         specify 'sends the message to everyone within the group' do

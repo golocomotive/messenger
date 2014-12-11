@@ -4,6 +4,7 @@ module Messenger
   RSpec.describe Message, type: :model do
     describe 'Associations' do
       specify { should belong_to(:sender) }
+      specify { should have_many(:receipts) }
     end
 
     describe 'Database Columns' do

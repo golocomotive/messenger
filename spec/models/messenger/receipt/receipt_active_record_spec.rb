@@ -2,6 +2,11 @@ require 'rails_helper'
 
 module Messenger
   describe Receipt do
+    describe 'Associations' do
+      specify { should belong_to(:message) }
+      specify { should belong_to(:recipient) }
+    end
+
     describe 'Database Columns' do
       specify { should have_db_column(:message_id).of_type(:integer) }
       specify { should have_db_column(:read_at).of_type(:datetime) }
