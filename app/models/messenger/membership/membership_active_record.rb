@@ -6,5 +6,6 @@ module Messenger
     validates :group, presence: true
     validates :member, presence: true
     validates :member_id, uniqueness: { scope: :member_type }
+    validates :member_type, exclusion: { in: %w(Messenger::Group) }
   end
 end
