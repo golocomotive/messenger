@@ -7,6 +7,7 @@ gemspec
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'byebug'
   gem 'spring'
 end

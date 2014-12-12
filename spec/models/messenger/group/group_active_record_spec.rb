@@ -4,19 +4,17 @@ module Messenger
   describe Group do
     describe 'Associations' do
       specify { should belong_to(:owner) }
-      specify { should have_many(:memberships) }
 
-      describe '.members' do
-        let(:o) { create :user }
+      describe ':memberships' do
+        let(:g) { create :group }
         let(:u) { create :user }
-        let(:v) { create :user }
-        let(:g) { create :group, owner: o }
 
-        specify 'finds all members' do
-          g.memberships.build(member: u)
-          g.memberships.build(member: v)
-          g.save!
-          expect(g.members).to match([u, v])
+        specify { should have_many(:memberships) }
+
+        specify 'prohibits the same member from appearing twice' do
+          g.memberships.create(member: u)
+          g.memberships.create(member: u)
+          expect(g.memberships.count).to eq(1)
         end
       end
     end

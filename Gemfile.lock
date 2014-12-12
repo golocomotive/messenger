@@ -47,6 +47,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    awesome_print (1.2.0)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -174,6 +175,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bundler (~> 1.7)
   byebug
   database_cleaner

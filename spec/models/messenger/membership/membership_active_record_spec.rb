@@ -18,5 +18,15 @@ module Messenger
       specify { should have_db_index([:member_type]) }
       specify { should have_db_index([:member_id, :member_type]) }
     end
+
+    describe 'Validations' do
+      specify { should validate_presence_of :group }
+      specify { should validate_presence_of :member }
+
+      specify 'validate uniqueness of member ID and member type' do
+        create :group_with_members
+        should validate_uniqueness_of(:member_id).scoped_to(:member_type)
+      end
+    end
   end
 end
