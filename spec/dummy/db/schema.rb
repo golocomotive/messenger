@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20141207230426) do
 
   create_table "messenger_messages", force: true do |t|
     t.text     "body"
+    t.text     "encoded_recipients"
     t.string   "subject"
     t.integer  "sender_id"
     t.string   "sender_type"
