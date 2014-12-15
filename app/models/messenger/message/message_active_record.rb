@@ -20,11 +20,9 @@ module Messenger
           result
         end
 
-        list = groups.each_pair.inject([]) do |result, (key, value)|
+        groups.each_pair.inject([]) do |result, (key, value)|
           result << "#{key}=#{value.join(',')}"
-        end
-
-        list.join('&')
+        end.join('&')
       end
   end
 end
