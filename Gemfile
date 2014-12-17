@@ -17,5 +17,5 @@ group :test do
   gem 'faker'
   gem 'guard-rspec'
   gem 'rspec-rails'
-  gem 'shoulda-matchers', git: 'git@github.com:thoughtbot/shoulda-matchers.git', branch: 'master'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'master'
 end
