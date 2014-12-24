@@ -1,0 +1,21 @@
+%p
+  %b Sender:
+  = message.sender
+
+%p
+  %b Sent at:
+  = message.sent_at
+
+%p
+  %b Encoded recipients:
+  = message.encoded_recipients
+
+%p
+  %b Subject:
+  = message.subject
+
+%p
+  %b Body:
+  = message.body
+
+= link_to 'Back', messages_path

@@ -7,5 +7,9 @@ module Messenger
         result += klass.constantize.where(id: ids).all
       end
     end
+
+    def recipients=(*list)
+      Array(list).flatten.map { |recipient| receipts.build(recipient: recipient) }
+    end
   end
 end

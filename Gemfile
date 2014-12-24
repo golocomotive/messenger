@@ -9,6 +9,7 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug'
+  gem 'letters'
   gem 'spring'
 end
 
