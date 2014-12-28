@@ -1,19 +1,21 @@
 module Messenger
   class MessagesController < ApplicationController
-    attr_reader :message
+    attr_reader :receipt
 
     def create
     end
 
     def destroy
-      message.destroy
+      receipt.destroy
+      redirect_to action: :index
     end
 
     def index
-      render locals: { messages: current_user.messages }
+      render locals: { messages: messages }
     end
 
     def new
+      @message = Message.new
     end
 
     def show
@@ -23,12 +25,24 @@ module Messenger
     private
 
       def message
-        id = params.fetch(:id, nil)
-        @message = current_user.messages.where(id: id).first
+        @message ||= receipt.message
+      end
+
+      def messages
+        @messages ||= current_user.messages
+      end
+
+      def receipt
+        @receipt ||= begin
+          id = params.fetch(:id, nil)
+          current_user.receipts.includes(:message).where(message_id: id).first
+        end
       end
 
       def whitelisted_params
-        params.require(:message).permit(:body, :recipient, :sender, :subject)
+        params
+          .require(:message)
+          .permit(:body, :recipient, :sender, :subject)
       end
   end
 end
