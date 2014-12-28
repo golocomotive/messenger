@@ -12,7 +12,7 @@
   %tbody
     - @messages.each do |message|
       %tr
-        %td= message.sender
+        %td= message.sender.to_s
         %td= message.subject
         %td= message.sent_at
         %td= link_to 'Show', message

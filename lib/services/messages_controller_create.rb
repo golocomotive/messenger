@@ -4,6 +4,7 @@ module Services
 
     def initialize(sender:, params:)
       @params = params
+      byebug
       @sender = sender
     end
 
@@ -18,8 +19,12 @@ module Services
         params[:body]
       end
 
+      def receivers
+        Array.wrap params[:receivers]
+      end
+
       def recipients
-        list = params[:receivers].inject({}) do |result, item|
+        list = receivers.inject({}) do |result, item|
           item.symbolize_keys
           klass = item[:class]
           id    = item[:id]

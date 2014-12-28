@@ -1,4 +1,4 @@
-= form_for @message do |f|
+= simple_form_for @message do |f|
   - if @message.errors.any?
     #error_explanation
       %h2= "#{pluralize(@message.errors.count, "error")} prohibited this message from being saved:"
@@ -9,17 +9,14 @@
   .field
     = f.label :body
     = f.text_area :body
+
   .field
     = f.label :subject
     = f.text_field :subject
-  .field
-    = f.label :sent_at
-    = f.datetime_select :sent_at
-  .field
-    = f.label :sender
-    = f.text_field :sender
-  .field
-    = f.label :encoded_recipients
-    = f.text_field :encoded_recipients
+
+  = f.simple_fields_for :receivers do |sf|
+    = sf.input :class, as: :hidden, input_html: { value: 'User' }
+    = sf.input :id,    as: :hidden, input_html: { value: '1' }
+
   .actions
-    = f.submit 'Save'
+    = f.submit 'Send'

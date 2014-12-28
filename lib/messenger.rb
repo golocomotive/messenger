@@ -1,5 +1,6 @@
 require 'haml'
 require 'messenger/engine'
+require 'simple_form'
 
 module Messenger
   def acts_as_recipient
