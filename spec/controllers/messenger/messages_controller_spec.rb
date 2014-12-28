@@ -5,10 +5,10 @@ module Messenger
     routes { Messenger::Engine.routes }
 
     describe 'Controller Actions' do
-      let(:r)  { User.where(name: 'Joe').first_or_create! }
-      let(:s)  { create :user }
-      let!(:m) { create_list :message, 3, recipients: [r], sender: s }
-
+      let(:body)       { Faker::Lorem.sentences(2).join(' ') }
+      let!(:u)         { User.where(name: 'Joe').first_or_create! }
+      let!(:v)         { create :user }
+      let!(:messages)  { create_list :message, 3, recipients: [u], sender: v }
 
       controller do
         def current_user
@@ -17,18 +17,21 @@ module Messenger
       end
 
       specify '#create' do
-        post :create, message: { sender_id: }
+        post :create, message: { receivers: [ { class: 'User', id: v.id } ], subject: 'Test', body: body }
+        expect(u.reload.sent_messages.count).to eq(1)
+        expect(v.reload.messages.count).to eq(1)
+        expect(v.reload.sent_messages.count).to eq(3)
       end
 
       specify '#delete' do
-        expect { delete :destroy, id: m.last }.to change{ Receipt.count }.by(-1)
-        expect(r.reload.messages.size).to eq(2)
-        expect(s.sent_messages.size).to eq(3)
+        expect { delete :destroy, id: messages.last }.to change{ Receipt.count }.by(-1)
+        expect(u.reload.messages.size).to eq(2)
+        expect(v.sent_messages.size).to eq(3)
       end
 
       specify '#index' do
         get :index
-        expect(assigns[:messages]).to include(*m)
+        expect(assigns[:messages]).to include(*messages)
       end
 
       specify '#new' do
@@ -37,8 +40,8 @@ module Messenger
       end
 
       specify '#show' do
-        get :show, id: m.first
-        expect(assigns[:message]).to eq(m.first)
+        get :show, id: messages.first
+        expect(assigns[:message]).to eq(messages.first)
       end
     end
   end

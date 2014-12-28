@@ -3,6 +3,9 @@ module Messenger
     attr_reader :receipt
 
     def create
+      service = Services::MessagesControllerCreate.new(sender: current_user, params: params[:message])
+      service.run
+      redirect_to action: :index
     end
 
     def destroy
@@ -42,7 +45,7 @@ module Messenger
       def whitelisted_params
         params
           .require(:message)
-          .permit(:body, :recipient, :sender, :subject)
+          .permit(:body, { recipients: [:class, :id] }, :sender, :subject)
       end
   end
 end

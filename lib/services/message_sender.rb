@@ -24,11 +24,9 @@ module Services
     private
 
       def expanded_list(list)
-        list = list.map do |recipient|
+        list.map do |recipient|
           recipient.respond_to?(:members) ? recipient.members : recipient
-        end
-
-        list.flatten
+        end.flatten
       end
   end
 end
