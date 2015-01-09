@@ -4,7 +4,6 @@ module Services
 
     def initialize(sender:, params:)
       @params = params
-      byebug
       @sender = sender
     end
 

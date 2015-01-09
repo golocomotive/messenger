@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/thoughtbot/shoulda-matchers.git
+  revision: 0c66220d856b2805c2203e30e5751cc9578cc2eb
+  branch: master
+  specs:
+    shoulda-matchers (2.7.0)
+      activesupport (>= 3.0.0)
+
 PATH
   remote: .
   specs:
@@ -8,14 +16,6 @@ PATH
       rails (= 4.1.8)
       simple_form
       uuid
-
-GIT
-  remote: https://github.com/thoughtbot/shoulda-matchers.git
-  revision: 0c66220d856b2805c2203e30e5751cc9578cc2eb
-  branch: master
-  specs:
-    shoulda-matchers (2.7.0)
-      activesupport (>= 3.0.0)
 
 GEM
   remote: http://rubygems.org/

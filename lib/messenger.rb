@@ -1,8 +1,8 @@
-require 'haml'
-require 'messenger/engine'
-require 'simple_form'
-
 module Messenger
+  def root
+    File.expand_path '../..', __FILE__
+  end
+
   def acts_as_recipient
     self.include Messenger::Associations
   end
@@ -18,6 +18,12 @@ module Messenger
       end
     end
   end
+
+  module_function :root
 end
 
 ActiveRecord::Base.extend(Messenger)
+
+require 'messenger/engine'
+require 'messenger/railtie'
+require 'simple_form'
