@@ -21,6 +21,7 @@ module Messenger
         expect(u.reload.sent_messages.count).to eq(1)
         expect(v.reload.messages.count).to eq(1)
         expect(v.reload.sent_messages.count).to eq(3)
+        expect(u.sent_messages.first.encoded_recipients).to_not be_blank
       end
 
       specify '#delete' do

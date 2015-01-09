@@ -19,6 +19,7 @@ module Messenger
           m.receipts.build(recipient: u)
           m.receipts.build(recipient: v)
           m.save
+          m.encode_recipients!
           expect(m.encoded_recipients).to include("messenger/group=#{g.id}&user=#{u.id},#{v.id}")
         end
       end

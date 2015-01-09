@@ -9,8 +9,10 @@ module Services
 
     def deliver
       recipients.each do |recipient|
-        recipient.receipts.create(message: message)
+        recipient.receipts.create!(message: message)
       end
+
+      message.encode_recipients!
     end
 
     def deliver_in_batches
