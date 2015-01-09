@@ -11,5 +11,9 @@ module Messenger
     def recipients=(*list)
       Array(list).flatten.map { |recipient| receipts.build(recipient: recipient) }
     end
+
+    def sent_at
+      created_at
+    end
   end
 end

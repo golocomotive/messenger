@@ -27,3 +27,4 @@ ActiveRecord::Base.extend(Messenger)
 require 'messenger/engine'
 require 'messenger/railtie'
 require 'simple_form'
+require 'stamp'

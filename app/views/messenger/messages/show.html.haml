@@ -4,7 +4,7 @@
 
 %p
   %b Sent at:
-  = message.sent_at
+  = message.sent_at.stamp('01:00:00 AM')
 
 %p
   %b Encoded recipients:

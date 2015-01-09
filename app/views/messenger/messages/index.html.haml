@@ -14,7 +14,7 @@
       %tr
         %td= message.sender.to_s
         %td= message.subject
-        %td= message.sent_at
+        %td= message.sent_at.stamp('01:00:00 AM')
         %td= link_to 'Show', message
         %td= link_to 'Destroy', message, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
