@@ -20,17 +20,14 @@ module Messenger
       created_at
     end
 
+    def to
+      encoded_recipients
+    end
+
     private
 
       def encoding
-        groups = receipts.inject({}) do |result, receipt|
-          (result[receipt.recipient_type.underscore] ||= []).push receipt.recipient_id
-          result
-        end
-
-        groups.each_pair.inject([]) do |result, (key, value)|
-          result << "#{key}=#{value.join(',')}"
-        end.join('&')
+        Util::EncodeDecodeClasses.encode receipts
       end
   end
 end

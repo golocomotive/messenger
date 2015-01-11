@@ -3,7 +3,8 @@
 %table
   %thead
     %tr
-      %th Sender
+      %th From
+      %th To
       %th Subject
       %th Sent at
       %th
@@ -13,6 +14,7 @@
     - @messages.each do |message|
       %tr
         %td= message.sender.to_s
+        %td= message.to
         %td= message.subject
         %td= message.sent_at.stamp('01:00:00 AM')
         %td= link_to 'Show', message
