@@ -1,7 +1,10 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+require 'codeclimate-test-reporter'
 require 'faker'
 require 'factory_girl'
+
+CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
   Kernel.srand config.seed
