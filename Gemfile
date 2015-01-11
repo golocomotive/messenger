@@ -18,6 +18,7 @@ group :test do
   gem 'faker'
   gem 'guard-rspec'
   gem 'rspec-rails'
+  gem 'rubocop', require: false
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'master'
 end
 

@@ -1,6 +1,4 @@
-[![Code Climate](https://codeclimate.com/repos/54b2b491e30ba00b01004cf5/badges/f65b75b25bd52ed6e96a/gpa.svg)](https://codeclimate.com/repos/54b2b491e30ba00b01004cf5/feed) 
-
-[![Test Coverage](https://codeclimate.com/repos/54b2b491e30ba00b01004cf5/badges/f65b75b25bd52ed6e96a/coverage.svg)](https://codeclimate.com/repos/54b2b491e30ba00b01004cf5/feed)
+[![Code Climate](https://codeclimate.com/repos/54b2b491e30ba00b01004cf5/badges/f65b75b25bd52ed6e96a/gpa.svg)](https://codeclimate.com/repos/54b2b491e30ba00b01004cf5/feed) [![Test Coverage](https://codeclimate.com/repos/54b2b491e30ba00b01004cf5/badges/f65b75b25bd52ed6e96a/coverage.svg)](https://codeclimate.com/repos/54b2b491e30ba00b01004cf5/feed)
 
 # Messenger
 
