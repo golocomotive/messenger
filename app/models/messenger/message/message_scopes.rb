@@ -7,5 +7,10 @@ module Messenger
     def self.sent
       where.not(sent_at: nil)
     end
+
+    def self.unread
+      joins(:receipts)
+        .merge(Receipt.unread)
+    end
   end
 end
