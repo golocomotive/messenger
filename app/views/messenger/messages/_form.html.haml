@@ -15,8 +15,8 @@
     = f.text_field :subject
 
   = f.simple_fields_for :receivers do |sf|
-    = sf.input :class, as: :hidden, input_html: { value: recipient[:class] }
-    = sf.input :id,    as: :hidden, input_html: { value: recipient[:id] }
+    = sf.input :class, as: :hidden, input_html: { value: recipients[:class] }
+    = sf.input :id,    as: :hidden, input_html: { value: recipients[:id] }
 
   .actions
     = f.submit 'Send'

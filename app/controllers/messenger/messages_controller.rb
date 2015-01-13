@@ -16,17 +16,16 @@ module Messenger
     end
 
     def index
-      render locals: { messages: messages }
+      render messages: messages
     end
 
     def new
       @recipients = to
       @message = Message.new
-      render locals: { recipients: @recipients }
     end
 
     def show
-      render locals: { message: message }
+      render message: message
     end
 
     private
@@ -36,7 +35,7 @@ module Messenger
       end
 
       def messages
-        @messages ||= current_user.messages
+        @messages ||= (sent_messages? ? current_user.sent_messages : current_user.messages)
       end
 
       def receipt
@@ -44,6 +43,10 @@ module Messenger
           id = params.fetch(:id, nil)
           current_user.receipts.includes(:message).where(message_id: id).first
         end
+      end
+
+      def sent_messages?
+        params[:sent].present?
       end
 
       def to
