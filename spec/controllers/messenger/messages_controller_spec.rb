@@ -35,9 +35,18 @@ module Messenger
         expect(assigns[:messages]).to include(*messages)
       end
 
-      specify '#new' do
-        get :new
-        expect(assigns[:message]).to be_a_new(Message)
+      describe '#new' do
+        specify 'sends a new message to the form' do
+          get :new
+          expect(assigns[:message]).to be_a_new(Message)
+        end
+
+        specify 'sets the recipient of the message from the params' do
+          get :new, message: { recipients: {class: 'User', id: 1} }
+          expect(assigns[:recipients]).to_not be_nil
+          expect(assigns[:recipients][:class]).to eq('User')
+          expect(assigns[:recipients][:id]).to eq('1')
+        end
       end
 
       specify '#show' do

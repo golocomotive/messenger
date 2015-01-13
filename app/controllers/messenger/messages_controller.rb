@@ -20,7 +20,9 @@ module Messenger
     end
 
     def new
+      @recipients = to
       @message = Message.new
+      render locals: { recipients: @recipients }
     end
 
     def show
@@ -42,6 +44,10 @@ module Messenger
           id = params.fetch(:id, nil)
           current_user.receipts.includes(:message).where(message_id: id).first
         end
+      end
+
+      def to
+        params[:message].blank? ? nil : params[:message][:recipients]
       end
 
       def whitelisted_params
