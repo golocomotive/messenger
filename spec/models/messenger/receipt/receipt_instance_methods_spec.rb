@@ -10,6 +10,13 @@ module Messenger
           expect(r).to receive(:touch).with(:read_at)
           r.read!
         end
+
+        specify 'does not change the time stamp if already set' do
+          t = Time.now - 1.day
+          r.read_at = t
+          expect(r).to_not receive(:touch).with(:read_at)
+          r.read!
+        end
       end
 
       describe '#sender' do

@@ -3,7 +3,7 @@ module Messenger
     delegate :sender, to: :message
 
     def read!
-      touch(:read_at)
+      touch(:read_at) if read_at.nil?
     end
 
     def unread!

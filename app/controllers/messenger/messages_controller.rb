@@ -25,7 +25,8 @@ module Messenger
     end
 
     def show
-      render message: message
+      receipt.read!
+      render locals: { message: message }
     end
 
     private
