@@ -18,4 +18,5 @@
   %b Body:
   = message.body
 
+= link_to 'Reply', new_message_path(message: { recipients: message.sender })
 = link_to 'Back', messages_path

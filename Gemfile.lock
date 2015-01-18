@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    messenger (0.0.5)
+    messenger (0.0.6)
       activerecord-import
       haml-rails
       hashie
