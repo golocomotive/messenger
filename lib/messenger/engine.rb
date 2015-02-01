@@ -8,7 +8,7 @@ module Messenger
 
     initializer :append_view_paths do |app|
       ActiveSupport.on_load :action_controller do
-        prepend_view_path File.join(root, 'app/views')
+        append_view_path File.join(root, 'app/views')
       end
     end
   end
