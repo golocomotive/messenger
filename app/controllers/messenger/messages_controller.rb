@@ -1,7 +1,5 @@
 module Messenger
   class MessagesController < ApplicationController
-    layout false
-
     attr_reader :receipt
 
     def create
