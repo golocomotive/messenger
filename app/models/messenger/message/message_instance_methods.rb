@@ -1,7 +1,7 @@
 module Messenger
   class Message < ActiveRecord::Base
-    def encode_recipients!
-      update_column(:encoded_recipients, encoding) if encoded_recipients.blank?
+    def encode_recipients
+      encoded_recipients = encoding if encoded_recipients.blank?
     end
 
     def recipients

@@ -4,8 +4,16 @@ module Messenger
 
     def create
       service = Services::MessagesControllerCreate.new(sender: current_user, params: params[:message])
-      service.run
-      redirect_to action: :index
+
+      respond_to do |format|
+        if service.run
+          format.html { redirect_to action: :index }
+          format.json { render nothing: true, status: :ok }
+        else
+          format.html { redirect_to action: :new }
+          format.json { render nothing: true, status: '500' }
+        end
+      end
     end
 
     def destroy

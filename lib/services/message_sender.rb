@@ -12,7 +12,8 @@ module Services
         recipient.receipts.create!(message: message)
       end
 
-      message.encode_recipients!
+      message.encode_recipients
+      message.save
     end
 
     def deliver_in_batches
